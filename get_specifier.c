@@ -14,8 +14,9 @@ int (*get_specifier(char s))(va_list)
 		{"s", print_string},
 		{"d", print_int},
 		{"i", print_int},
+		{'b', print_binary},
 	};
-	int no_spec = 4;
+	int no_spec = 5;
 
 	register int  i;
 
