@@ -32,10 +32,7 @@ int _printf(const char *format, ...)
 			{
 				specfunc = get_specifier(format[i + 1]);
 				printlen += (specfunc)(spec_arg);
-<<<<<<< HEAD
-=======
 				flag = 1;
->>>>>>> 86bece8444bde69f0d3a677c1eb62e1fd3259041
 			}
 			if (flag == 1)
 				i++;

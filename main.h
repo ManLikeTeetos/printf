@@ -23,10 +23,11 @@ int (*get_specifier(char s))(va_list);
 int print_string(va_list arg);
 int print_char(va_list arg);
 int print_int(va_list arg);
+int print_binary(va_list arg);
 
 /**
 *spec_convert - converts number and base to string
 */
-char *spec_convert(unsigned long int num, int base, int lowercase)
+char *spec_convert(unsigned long int num, int base, int lowercase);
 
 #endif
