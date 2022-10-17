@@ -14,9 +14,10 @@ int (*get_specifier(char s))(va_list){
     spec spec_type[] = {
         {"c", print_char},
         {"s", print_string},
-
+	{"d", print_int},
+	{"i", print_int},
         };
-        int no_spec = 2;
+        int no_spec = 4;
 
         register int  i;
         for (i = 0; i < no_spec; i++)
