@@ -24,4 +24,3 @@ int (*get_specifier(char s))(va_list)
 			return (spec_type[i].p);
 	return (NULL);
 }
-

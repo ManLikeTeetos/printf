@@ -3,6 +3,7 @@
 
 #include <stdarg.h>
 #include <stdlib.h>
+#include <stddef.h>
 
 /**
 *struct spec_func - pointer array of specified functions
