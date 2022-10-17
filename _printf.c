@@ -30,8 +30,10 @@ int _printf(const char *format, ...)
 				flag = 1;
 			}
 			else
+			{
 				specfunc = get_specifier(format[i + 1]);
 				printlen += (specfunc)(spec_arg);
+			}
 			if (flag == 1)
 				i++;
 			else
