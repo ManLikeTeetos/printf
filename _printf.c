@@ -9,11 +9,16 @@
  */
 int _printf(const char *format, ...)
 {
-int i, printlen;
-va_list spec_arg;
-va_start(spec_arg, format);
-short flag = 0;
-_putchar(i);
+    va_list spec_arg;
+    int (*specfunc)(va_list);
+    int i, printlen;
+
+    short flag = 0;
+
+
+
+    va_start(spec_arg, format);
+
 
 
 
@@ -35,8 +40,8 @@ _putchar(i);
             else
             {
 
-                printlen += get_specifier(format[i + 1], spec_arg);
-                flag = 1;
+                specfunc = get_specifier(format[i + 1]);
+                printlen += (specfunc)(spec_arg);
             }
             if (flag == 1)
                 i++;

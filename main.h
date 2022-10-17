@@ -1,5 +1,5 @@
-#ifndef FILE_MAIN
-#define FILE_MAIN
+#ifndef _MAIN_H
+#define _MAIN_H
 
 #include <stdarg.h>
 #include <stdlib.h>
@@ -12,7 +12,8 @@ typedef struct print
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-int get_specifier(char s, va_list spec_arg);
+int (*get_specifier(char s))(va_list);
 int print_string(va_list arg);
+int print_char(va_list arg);
 
 #endif
