@@ -52,7 +52,7 @@ int print_string(va_list spec_arg)
  */
 int print_int(va_list spec_arg)
 {
-	long n = va_arg(arg, int), i = 0, j, length = 0;
+	long n = va_arg(spec_arg, int), i = 0, j, length = 0;
 	int arr[11] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 	if (n < 0)
