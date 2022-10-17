@@ -10,7 +10,7 @@ int _printf(const char *format, ...)
 {
 	va_list spec_arg;
 	int (*specfunc)(va_list);
-	int i, printlen;
+	int i, printlen = 0;
 	short flag = 0;
 
 	va_start(spec_arg, format);
