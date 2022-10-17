@@ -14,6 +14,7 @@ int (*get_specifier(char s))(va_list)
 		{"s", print_string},
 		{"d", print_int},
 		{"i", print_int},
+		{NULL, NULL}
 	};
 	int no_spec = 4;
 
