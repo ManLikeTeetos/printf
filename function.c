@@ -11,7 +11,7 @@
  */
 int _putchar(char c)
 {
-        return (write(1, &c, 1));
+	return (write(1, &c, 1));
 }
 
 /**
@@ -21,61 +21,61 @@ int _putchar(char c)
  */
 int print_char(va_list spec_arg)
 {
-    char c;
+	char c;
 
-    c = va_arg(spec_arg, int);
-    _putchar(c);
-    return (1);
+	c = va_arg(spec_arg, int);
+	_putchar(c);
+	return (1);
 }
 /**
  * print_string - called from _printf
- * @arg: string
+ * @spec_arg: string
  * Return: int
  */
 int print_string(va_list spec_arg)
 {
-    char *s;
-    int i;
+	char *s;
+	int i;
 
-    s = va_arg(spec_arg, char *);
-    if (s == NULL)
-        s = "(null)";
-    for (i = 0; s[i] != '\0'; i++)
-        _putchar(s[i]);
-    return (i);
+	s = va_arg(spec_arg, char *);
+	if (s == NULL)
+		s = "(null)";
+	for (i = 0; s[i] != '\0'; i++)
+		_putchar(s[i]);
+	return (i);
 }
 
 /**
- *  * print_int - called from _printf
- *   * @arg: int
- *    * Return: int
- *     */
-int print_int(va_list arg)
+ *print_int - called from _printf
+ *@spec_arg: int
+ *Return: int
+ */
+int print_int(va_list spec_arg)
 {
-		long n = va_arg(arg, int), i = 0, j, length = 0;
-			int arr[11] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	long n = va_arg(arg, int), i = 0, j, length = 0;
+	int arr[11] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-				if (n < 0)
-						{
-									_putchar('-');
-											n = n * -1;
-													length++;
-														}
-					if (n == 0)
-							{
-										_putchar('0');
-												length++;
-													}
-						while (n != 0)
-								{
-											arr[i] = n % 10;
-													n = n / 10;
-															i++;
-																}
-							for (j = i - 1; j >= 0; j--)
-									{
-												_putchar(arr[j] + '0');
-													}
-								length += i;
-									return (length);
+	if (n < 0)
+	{
+		_putchar('-');
+		n = n * -1;
+		length++;
+	}
+	if (n == 0)
+	{
+		_putchar('0');
+		length++;
+	}
+	while (n != 0)
+	{
+		arr[i] = n % 10;
+		n = n / 10;
+		i++;
+	}
+	for (j = i - 1; j >= 0; j--)
+	{
+		_putchar(arr[j] + '0');
+	}
+	length += i;
+	return (length);
 }

@@ -4,10 +4,15 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
-typedef struct print
+/**
+*struct spec_func - pointer array of specified functions
+*@c: specifier character
+*@p: pointer
+*/
+typedef struct spec_func
 {
-    char *c;
-    int (*p)(va_list spec_arg);
+	char *c;
+	int (*p)(va_list spec_arg);
 } spec;
 
 int _putchar(char c);

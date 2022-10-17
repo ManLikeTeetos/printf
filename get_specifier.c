@@ -7,22 +7,21 @@
  * Return: a pointer to the function
  */
 
-int (*get_specifier(char s))(va_list){
+int (*get_specifier(char s))(va_list)
+{
+	spec spec_type[] = {
+		{"c", print_char},
+		{"s", print_string},
+		{"d", print_int},
+		{"i", print_int},
+	};
+	int no_spec = 4;
 
+	register int  i;
 
-
-    spec spec_type[] = {
-        {"c", print_char},
-        {"s", print_string},
-	{"d", print_int},
-	{"i", print_int},
-        };
-        int no_spec = 4;
-
-        register int  i;
-        for (i = 0; i < no_spec; i++)
-            if (*spec_type[i].c == s)
-                return (spec_type[i].p);
-        return (NULL);
+	for (i = 0; i < no_spec; i++)
+		if (*spec_type[i].c == s)
+			return (spec_type[i].p);
+	return (NULL);
 }
 
