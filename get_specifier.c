@@ -15,6 +15,7 @@ int (*get_specifier(char s))(va_list)
 		{"d", print_int},
 		{"i", print_int},
 		{'b', print_binary},
+		{NULL, NULL}
 	};
 	int no_spec = 5;
 
@@ -25,4 +26,3 @@ int (*get_specifier(char s))(va_list)
 			return (spec_type[i].p);
 	return (NULL);
 }
-

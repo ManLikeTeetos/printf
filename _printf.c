@@ -10,11 +10,10 @@ int _printf(const char *format, ...)
 {
 	va_list spec_arg;
 	int (*specfunc)(va_list);
-	int i, printlen;
+	int i, printlen = 0;
 	short flag = 0;
 
 	va_start(spec_arg, format);
-
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
@@ -33,13 +32,17 @@ int _printf(const char *format, ...)
 			{
 				specfunc = get_specifier(format[i + 1]);
 				printlen += (specfunc)(spec_arg);
+<<<<<<< HEAD
+=======
+				flag = 1;
+>>>>>>> 86bece8444bde69f0d3a677c1eb62e1fd3259041
 			}
 			if (flag == 1)
 				i++;
 			else
 			{
-			_putchar('%');
-			printlen++;
+				_putchar('%');
+				printlen++;
 			}
 		}
 		else
