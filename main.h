@@ -43,6 +43,7 @@ int print_hex(va_list arg, indi *d);
 int print_hex_big(va_list arg, indi *d);
 int print_octal(va_list arg, indi *d);
 int print_bigS(va_list arg, indi *d);
+int print_address(va_list arg, indi *d);
 int count_num(int i);
 void print_number(int n);
 
