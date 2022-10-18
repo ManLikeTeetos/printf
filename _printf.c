@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 				while (spec_indi(*v, &indicators))
 					v++;
 				specfunc = get_specifier(*v);
-				printlen += (specfunc)(spec_arg, &indicators);
+				printlen += (specfunc) ? specfunc(spec_arg, &indicators) : _printf("%%%c", *v);
 				flag = 1;
 			}
 			if (flag == 1)
@@ -50,7 +50,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			_putchar(format[i]);
+			_putchar(*v);
 			printlen++;
 		}
 	}
