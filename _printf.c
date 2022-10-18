@@ -11,6 +11,7 @@ int _printf(const char *format, ...)
 	va_list spec_arg;
 	int (*specfunc)(va_list, indi *);
 	int i, printlen = 0;
+	const char *v;
 	short flag = 0;
 
 	indi indicators = {0, 0, 0};
@@ -20,11 +21,12 @@ int _printf(const char *format, ...)
 		return (-1);
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
 		return (-1);
-	for (i = 0; format[i] != '\0'; i++)
+	for (v = format; *v; v++)
 	{
-		if (format[i] == '%')
+		if (*v == '%')
 		{
-			if (format[i + 1] == '%')
+			v++;
+			if (*v == '%')
 			{
 				_putchar('%');
 				printlen++;
@@ -32,8 +34,9 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-				while (spec_indi(format[i + 1], &indicators))
-				specfunc = get_specifier(format[i + 1]);
+				while (spec_indi(*v, &indicators))
+					v++;
+				specfunc = get_specifier(*v);
 				printlen += (specfunc)(spec_arg, &indicators);
 				flag = 1;
 			}
