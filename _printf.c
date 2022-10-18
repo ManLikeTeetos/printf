@@ -10,9 +10,9 @@ int _printf(const char *format, ...)
 {
 	va_list spec_arg;
 	int (*specfunc)(va_list, indi *);
-	int i, printlen = 0;
+	int  printlen = 0;
 	const char *v;
-	short flag = 0;
+
 
 	indi indicators = {0, 0, 0};
 
@@ -30,7 +30,6 @@ int _printf(const char *format, ...)
 			{
 				_putchar('%');
 				printlen++;
-				flag = 1;
 			}
 			else
 			{
@@ -38,14 +37,6 @@ int _printf(const char *format, ...)
 					v++;
 				specfunc = get_specifier(*v);
 				printlen += (specfunc) ? specfunc(spec_arg, &indicators) : _printf("%%%c", *v);
-				flag = 1;
-			}
-			if (flag == 1)
-				i++;
-			else
-			{
-				_putchar('%');
-				printlen++;
 			}
 		}
 		else
