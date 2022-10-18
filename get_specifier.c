@@ -21,9 +21,11 @@ int (*get_specifier(char s))(va_list, indi *)
 		{"o", print_octal},
 		{"S", print_bigS},
 		{"p", print_address},
-		{NULL, NULL}
+		{"R", print_rot13},
+		{"r", print_rev},
+		{"%", print_percent}
 	};
-	int no_spec = 11;
+	int no_spec = 14;
 
 	register int  i;
 
