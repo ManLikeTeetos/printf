@@ -45,6 +45,7 @@ int _printf(const char *format, ...)
 			printlen++;
 		}
 	}
+	_putchar(-1);
 	va_end(spec_arg);
 	return (printlen);
 }
