@@ -40,6 +40,8 @@ int print_int(va_list arg, indi *d);
 int print_binary(va_list arg, indi *d);
 int print_unsigned(va_list arg, indi *d);
 int print_hex(va_list arg, indi *d);
+int print_hex_big(va_list arg, indi *d);
+int print_octal(va_list arg, indi *d);
 int count_num(int i);
 void print_number(int n);
 

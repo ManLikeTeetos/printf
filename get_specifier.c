@@ -17,9 +17,11 @@ int (*get_specifier(char s))(va_list, indi *)
 		{"b", print_binary},
 		{"u", print_unsigned},
 		{"x", print_hex},
+		{"X", print_hex_big},
+		{"o", print_octal},
 		{NULL, NULL}
 	};
-	int no_spec = 7;
+	int no_spec = 9;
 
 	register int  i;
 
