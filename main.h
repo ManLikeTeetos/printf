@@ -6,6 +6,20 @@
 #include <stddef.h>
 
 /**
+ * struct indicators - struct containing indicators to "turn on"
+ * when a flag specifier is passed to _printf()
+ * @plus: flag for the '+' character
+ * @space: flag for the ' ' character
+ * @hash: flag for the '#' character
+ */
+typedef struct indicators
+{
+	int plus;
+	int space;
+	int hash;
+} indi;
+
+/**
 *struct spec_func - pointer array of specified functions
 *@c: specifier character
 *@p: pointer
@@ -24,10 +38,26 @@ int print_string(va_list arg);
 int print_char(va_list arg);
 int print_int(va_list arg);
 int print_binary(va_list arg);
+int print_unsigned(va_list arg);
+int print_hex(va_list arg);
 
 /**
 *spec_convert - converts number and base to string
+* @num: number
+* @base: base
+* @lowercase: if hexa values should be in lowercase
+* Return: result string
 */
 char *spec_convert(unsigned long int num, int base, int lowercase);
+
+/**
+ * spec_indi - turns on indicator if _printf finds
+ * a flag modifier in the format string
+ * @s: character that holds the flag specifier
+ * @d: pointer to the struct flags in which we turn on the indicaton
+ *
+ * Return: 1 if a indicator has been turned on, 0 otherwise
+ */
+int spec_indi(char s, flags_t *d);
 
 #endif

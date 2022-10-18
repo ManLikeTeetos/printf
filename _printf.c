@@ -12,6 +12,7 @@ int _printf(const char *format, ...)
 	int (*specfunc)(va_list);
 	int i, printlen = 0;
 	short flag = 0;
+	indi indicators = {0, 0, 0};
 
 	va_start(spec_arg, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
@@ -30,6 +31,7 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
+				while (spec_indi(format[i+1], &indicators))
 				specfunc = get_specifier(format[i + 1]);
 				printlen += (specfunc)(spec_arg);
 				flag = 1;
