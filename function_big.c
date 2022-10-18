@@ -35,3 +35,26 @@ int print_bigS(va_list spec_arg, indi *d)
 	}
 	return (count);
 }
+/**
+ *  * print_address - prints address of input in hexa format
+ ** @spec_arg: va_list arguments from _printf
+ ** @d: pointer to the struct flags that determines
+ * * if a flag is passed to _printf
+ * * Return: number of char printed
+ */
+int print_address(va_list spec_arg, indi *d)
+{
+	char *str;
+	unsigned long int p = va_arg(spec_arg, unsigned long int);
+
+	register int count = 0;
+
+	(void)d;
+
+	if (!p)
+		return (_puts("(nil)"));
+	str = spec_convert(p, 16, 1);
+	count += _puts("0x");
+	count += _puts(str);
+	return (count);
+}
