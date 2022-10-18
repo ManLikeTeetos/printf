@@ -58,6 +58,6 @@ char *spec_convert(unsigned long int num, int base, int lowercase);
  *
  * Return: 1 if a indicator has been turned on, 0 otherwise
  */
-int spec_indi(char s, flags_t *d);
+int spec_indi(char s, indi *d);
 
 #endif
