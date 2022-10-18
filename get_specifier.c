@@ -19,9 +19,10 @@ int (*get_specifier(char s))(va_list, indi *)
 		{"x", print_hex},
 		{"X", print_hex_big},
 		{"o", print_octal},
+		{'S', print_bigS},
 		{NULL, NULL}
 	};
-	int no_spec = 9;
+	int no_spec = 10;
 
 	register int  i;
 
