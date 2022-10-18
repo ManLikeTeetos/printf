@@ -7,7 +7,7 @@
  * Return: a pointer to the function
  */
 
-int (*get_specifier(char s))(va_list)
+int (*get_specifier(char s))(va_list, indi *)
 {
 	spec spec_type[] = {
 		{"c", print_char},
@@ -15,8 +15,8 @@ int (*get_specifier(char s))(va_list)
 		{"d", print_int},
 		{"i", print_int},
 		{"b", print_binary},
-		{'u', print_unsigned},
-		{'x', print_hex},
+		{"u", print_unsigned},
+		{"x", print_hex},
 		{NULL, NULL}
 	};
 	int no_spec = 7;

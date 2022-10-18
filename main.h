@@ -27,19 +27,21 @@ typedef struct indicators
 typedef struct spec_func
 {
 	char *c;
-	int (*p)(va_list spec_arg);
+	int (*p)(va_list spec_arg, indi *d);
 } spec;
 
 int _putchar(char c);
 int _puts(char *str);
 int _printf(const char *format, ...);
-int (*get_specifier(char s))(va_list);
-int print_string(va_list arg);
-int print_char(va_list arg);
-int print_int(va_list arg);
-int print_binary(va_list arg);
-int print_unsigned(va_list arg);
-int print_hex(va_list arg);
+int (*get_specifier(char s))(va_list, indi *);
+int print_string(va_list arg, indi *d);
+int print_char(va_list arg, indi *d);
+int print_int(va_list arg, indi *d);
+int print_binary(va_list arg, indi *d);
+int print_unsigned(va_list arg, indi *d);
+int print_hex(va_list arg, indi *d);
+int count_num(int i);
+void print_number(int n);
 
 /**
 *spec_convert - converts number and base to string
