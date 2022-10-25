@@ -9,8 +9,11 @@
 int _printf(const char *format, ...)
 {
 	va_list spec_arg;
+
 	int (*specfunc)(va_list, indi *);
-	register int  printlen = 0;
+
+	register int printlen = 0;
+
 	const char *v;
 
 
@@ -36,7 +39,9 @@ int _printf(const char *format, ...)
 				while (spec_indi(*v, &indicators))
 					v++;
 				specfunc = get_specifier(*v);
-				printlen += (specfunc) ? specfunc(spec_arg, &indicators) : _printf("%%%c", *v);
+				printlen += (specfunc)
+					? specfunc(spec_arg, &indicators)
+					: _printf("%%%c", *v);
 			}
 		}
 		else
