@@ -13,6 +13,7 @@ int _printf(const char *format, ...)
 	register int  printlen = 0;
 	const char *v;
 
+
 	indi indicators = {0, 0, 0};
 
 	va_start(spec_arg, format);
@@ -34,18 +35,6 @@ int _printf(const char *format, ...)
 			{
 				while (spec_indi(*v, &indicators))
 					v++;
-
-				specfunc = get_specifier(*v);
-				printlen += (specfunc) ? specfunc(spec_arg, &indicators) : _printf("%%%c", *v);
-				flag = 1;
-			}
-			if (flag == 1)
-				i++;
-			else
-			{
-				_putchar('%');
-				printlen++;
-
 				specfunc = get_specifier(*v);
 				printlen += (specfunc) ? specfunc(spec_arg, &indicators) : _printf("%%%c", *v);
 			}
